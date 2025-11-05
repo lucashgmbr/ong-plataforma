@@ -1,16 +1,22 @@
 
+/* 04-nav.css — Navegação com submenu e hambúrguer */
 .site-header{position:sticky;top:0;z-index:10;background:var(--panel);box-shadow:var(--shadow)}
 .header-wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.logo a{display:inline-block;color:white;font-weight:800}.logo span{color:var(--brand-300)}
+.logo a{display:inline-block;color:white;font-weight:800}
+.logo span{color:var(--brand-300)}
+
 .nav-toggle{display:none;background:transparent;border:1px solid var(--brand-300);color:var(--brand-300);padding:.5rem .75rem;border-radius:12px}
 .menu{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
 .menu a,.menu button{color:var(--text);background:none;border:0;font:inherit;cursor:pointer;padding:.5rem .5rem;border-radius:8px}
 .menu a:hover,.menu button:hover,.menu a:focus,.menu button:focus{background:rgba(255,255,255,.06)}
+
 .has-submenu{position:relative}
 .submenu{position:absolute;left:0;top:calc(100% + .25rem);min-width:220px;background:#0f1a37;border:1px solid #22304f;border-radius:12px;box-shadow:var(--shadow);padding:.25rem;display:none}
 .submenu a{display:block;padding:.6rem .75rem}
 .has-submenu[aria-expanded="true"] > .submenu{display:block}
-@media (max-width:640px){
+
+/* Mobile */
+@media (max-width: 640px){
   .nav-toggle{display:inline-block}
   .menu{display:none;position:absolute;right:1rem;top:3.5rem;flex-direction:column;background:#0f1a37;border:1px solid #22304f;padding:1rem;border-radius:12px}
   .menu[aria-expanded="true"]{display:flex}

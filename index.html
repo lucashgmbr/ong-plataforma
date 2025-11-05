@@ -10,79 +10,134 @@
 
   </head>
   <body>
-    <header class="site-header" role="banner">
+    <header class="site-header">
   <div class="container header-wrap">
     <h1 class="logo"><a href="index.html" aria-label="ONG Impacta+, ir para a página inicial">ONG <span>Impacta+</span></a></h1>
     <nav class="site-nav" aria-label="Navegação principal">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-      <ul id="menu" class="menu">
+      <ul id="menu" class="menu" aria-expanded="false">
         <li><a href="index.html">Início</a></li>
         <li><a href="projetos.html">Projetos</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
+        <li class="has-submenu" aria-expanded="false">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Mais ▾</button>
+          <ul class="submenu" role="menu">
+            <li><a role="menuitem" href="index.html#sobre">Sobre</a></li>
+            <li><a role="menuitem" href="index.html#transparencia">Transparência</a></li>
+            <li><a role="menuitem" href="index.html#contato">Contato</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
-    <main id="conteudo" class="container" role="main">
-      <section class="hero" aria-labelledby="titulo-hero">
-        <div class="hero-text">
-          <h2 id="titulo-hero">Transforme impacto local em mudança real</h2>
-          <p>Conecte voluntários, viabilize doações e acompanhe resultados com uma presença digital profissional.</p>
-          <p>
-            <a class="btn" href="cadastro.html">Quero me cadastrar</a>
-            <a class="btn btn-outline" href="projetos.html">Conhecer projetos</a>
-          </p>
+    <main id="conteudo" class="container">
+
+      <!-- ALERTA contextual (feedback) -->
+      <div class="alert warn mt-2" role="alert">
+        Campanha de Inverno: precisamos de cobertores e agasalhos — <a href="projetos.html">saiba como ajudar</a>.
+      </div>
+
+      <section id="sobre" class="hero section" aria-labelledby="titulo-hero">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <h2 id="titulo-hero">Transforme impacto local em mudança real</h2>
+            <p>Conecte voluntários, viabilize doações e acompanhe resultados com uma presença digital profissional.</p>
+            <p class="mt-2">
+              <a class="btn js-open-modal" href="#!" data-modal="newsletter">Receber novidades</a>
+              <a class="btn btn-outline" href="cadastro.html">Quero ser voluntário</a>
+            </p>
+          </div>
+          <div class="col-12 col-md-6">
+            <figure class="hero-media">
+              <img src="assets/img/multirao.png" alt="Voluntários em ação em um projeto comunitário" width="640" height="360" loading="lazy">
+            </figure>
+          </div>
         </div>
-        <figure class="hero-media">
-          <img src="assets/img/multirao.png" alt="Voluntários em ação em um projeto comunitário" width="640" height="360" loading="lazy">
-        </figure>
       </section>
 
-      <section aria-labelledby="missao" class="grid-3">
-        <article>
-          <h3 id="missao">Missão</h3>
-          <p>Ampliar oportunidades por meio de projetos de educação, cultura e trabalho.</p>
-        </article>
-        <article>
-          <h3>Visão</h3>
-          <p>Ser referência em transparência e tecnologia aplicada ao terceiro setor.</p>
-        </article>
-        <article>
-          <h3>Valores</h3>
-          <ul>
-            <li>Transparência</li>
-            <li>Equidade</li>
-            <li>Colaboração</li>
-          </ul>
-        </article>
+      <section class="section" aria-labelledby="destaques">
+        <h2 id="destaques">Projetos em destaque</h2>
+        <div class="row">
+          <article class="card col-12 col-md-6 mb-2">
+            <div class="card-body">
+              <h3>Campanha de Inverno <span class="badge warn">urgente</span></h3>
+              <p>Arrecadação de agasalhos para famílias em situação de rua.</p>
+              <p><a class="btn js-open-modal" data-modal="doar" href="#!">Doar agora</a></p>
+            </div>
+          </article>
+          <article class="card col-12 col-md-6 mb-2">
+            <div class="card-body">
+              <h3>Reforço Escolar <span class="badge info">novo</span></h3>
+              <p>Turmas abertas para voluntários de leitura.</p>
+              <p><a class="btn" href="projetos.html">Ver detalhes</a></p>
+            </div>
+          </article>
+        </div>
       </section>
+
+      <section id="contato" class="section" aria-labelledby="sec-contato">
+        <h2 id="sec-contato">Contato</h2>
+        <p>Fale com a gente para parcerias e dúvidas.</p>
+        <address>
+          Rua Exemplo, 123 — Guarulhos, SP — <a href="mailto:contato@impacta.org">contato@impacta.org</a>
+        </address>
+      </section>
+
+      <!-- TOAST STACK (usado por copiar PIX e inscrições) -->
+      <div class="toast-stack" id="toasts" aria-live="polite"></div>
+
+      <!-- MODAIS contextuais -->
+      <div class="modal-backdrop" id="modal-newsletter" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttl-news">
+          <header>
+            <h3 id="ttl-news">Assinar novidades</h3>
+            <button class="btn-ghost js-close-modal" aria-label="Fechar">✕</button>
+          </header>
+          <p>Informe seu e-mail para receber atualizações dos projetos.</p>
+          <form id="form-newsletter">
+            <label for="news-email" class="sr-only">E-mail</label>
+            <input id="news-email" type="email" placeholder="seu@email.com" required>
+            <button class="btn mt-2" type="submit">Assinar</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-backdrop" id="modal-doar" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="ttl-doar">
+          <header>
+            <h3 id="ttl-doar">Doar</h3>
+            <button class="btn-ghost js-close-modal" aria-label="Fechar">✕</button>
+          </header>
+          <p>Use nossa chave PIX <strong>impacta@pix.org</strong> ou <a href="projetos.html">veja outras formas</a>.</p>
+          <p><button class="btn btn-outline js-copy-pix" data-pix="impacta@pix.org">Copiar chave PIX</button></p>
+        </div>
+      </div>
     </main>
-    <footer class="site-footer" role="contentinfo">
-  <div class="container grid-3">
-    <section>
+    <footer id="transparencia" class="site-footer">
+  <div class="container row">
+    <section class="col-12 col-md-4">
       <h2 class="h4">Sobre</h2>
       <p>Somos uma organização sem fins lucrativos dedicada a ampliar oportunidades por meio da educação e cidadania.</p>
     </section>
-    <section>
+    <section class="col-12 col-md-4">
+      <h2 class="h4">Doações</h2>
+      <p>Chave PIX: <code id="pix">impacta@pix.org</code></p>
+      <p><button class="btn btn-outline js-copy-pix" data-pix="impacta@pix.org">Copiar PIX</button></p>
+    </section>
+    <section class="col-12 col-md-4">
       <h2 class="h4">Contato</h2>
       <address>
         Rua Exemplo, 123 — Guarulhos, SP<br>
         <a href="mailto:contato@impacta.org">contato@impacta.org</a><br>
-        <a href="tel:+5511999999999">+55 (11) 99999‑9999</a>
+        <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
       </address>
     </section>
-    <section>
-      <h2 class="h4">Transparência</h2>
-      <ul>
-        <li><a href="#" aria-disabled="true">Relatório anual (em breve)</a></li>
-        <li><a href="#" aria-disabled="true">Prestação de contas (em breve)</a></li>
-      </ul>
-    </section>
   </div>
-  <p class="copy">© 2025 ONG Impacta+. Todos os direitos reservados.</p>
+  <p class="copy center">© 2025 ONG Impacta+. Todos os direitos reservados.</p>
+  <script src="js/main.js" defer></script>
 </footer>
-<script src="js/main.js" defer></script>
 
   </body>
 </html>

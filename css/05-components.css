@@ -1,24 +1,34 @@
 
+/* 05-components.css — Cards, Buttons, Forms, Badges, Alerts/Toasts/Modal */
 .btn{background:var(--brand-500);color:#04121a;border:0;padding:.7rem 1rem;border-radius:12px;font-weight:700}
 .btn:hover{filter:brightness(1.05)}
 .btn-outline{background:transparent;border:2px solid var(--brand-500);color:var(--brand-300)}
 .btn-ghost{background:transparent;color:var(--text)}
+
 .card{background:var(--panel);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-.card-body{padding:var(--space-2)} .card .meta{padding-left:1rem;color:var(--muted)}
+.card-body{padding:var(--space-2)}
+.card .meta{padding-left:1rem;color:var(--muted)}
+
 .badge{display:inline-block;border-radius:999px;padding:.25rem .6rem;font-weight:700;background:var(--neutral-700);color:white}
 .badge.success{background:var(--success)} .badge.warn{background:var(--warning)} .badge.info{background:var(--brand-700)}
+
 input,select,textarea{padding:.7rem;border-radius:10px;border:1px solid #2d395a;background:#0f1a37;color:var(--text)}
 label{font-weight:600}
 .field{display:grid;gap:.35rem;margin-bottom:var(--space-2)}
-fieldset{border:1px solid #2d395a;padding:var(--space-2);border-radius:var(--radius);margin-bottom:var(--space-2)} legend{padding:0 .5rem}
+fieldset{border:1px solid #2d395a;padding:var(--space-2);border-radius:var(--radius);margin-bottom:var(--space-2)}
+legend{padding:0 .5rem}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--brand-500);border-color:var(--brand-500)}
-input:invalid,select:invalid,textarea:invalid{border-color:var(--danger)} input:valid{border-color:var(--success)}
+input:invalid,select:invalid,textarea:invalid{border-color:var(--danger)}
+input:valid{border-color:var(--success)}
+
 .alert{border-radius:12px;padding:var(--space-2);background:#10213f;border:1px solid #1f3d6b}
 .alert.success{background:#0e2f22;border-color:#166534}
 .alert.warn{background:#2a210b;border-color:#a16207}
 .alert.danger{background:#3b0d0d;border-color:#b91c1c}
+
 .toast-stack{position:fixed;left:50%;transform:translateX(-50%);bottom:1rem;display:grid;gap:.5rem;z-index:50}
 .toast{background:#101826;color:var(--text);border:1px solid #25324a;padding:.6rem 1rem;border-radius:12px;min-width:260px;box-shadow:var(--shadow)}
+
 .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;place-items:center;z-index:60}
 .modal{background:#0f1a37;border:1px solid #25324a;border-radius:16px;max-width:560px;width:92%;padding:var(--space-3);box-shadow:var(--shadow)}
 .modal-show{display:grid}

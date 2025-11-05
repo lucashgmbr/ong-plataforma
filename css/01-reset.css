@@ -1,6 +1,8 @@
 
-*{box-sizing:border-box}*::before,*::after{box-sizing:inherit}
-html{line-height:1.4;scroll-behavior:smooth}
+/* 01-reset.css — Reset/Normalize */
+*{box-sizing:border-box}
+*::before,*::after{box-sizing:inherit}
+html{line-height:1.4;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;font-family:system-ui,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;background:var(--bg);color:var(--text)}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--brand-300);text-decoration:none}

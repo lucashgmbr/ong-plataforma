@@ -10,54 +10,59 @@
 
   </head>
   <body>
-    <header class="site-header" role="banner">
+    <header class="site-header">
   <div class="container header-wrap">
     <h1 class="logo"><a href="index.html" aria-label="ONG Impacta+, ir para a página inicial">ONG <span>Impacta+</span></a></h1>
     <nav class="site-nav" aria-label="Navegação principal">
       <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-      <ul id="menu" class="menu">
+      <ul id="menu" class="menu" aria-expanded="false">
         <li><a href="index.html">Início</a></li>
         <li><a href="projetos.html">Projetos</a></li>
         <li><a href="cadastro.html">Cadastro</a></li>
+        <li class="has-submenu" aria-expanded="false">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Mais ▾</button>
+          <ul class="submenu" role="menu">
+            <li><a role="menuitem" href="index.html#sobre">Sobre</a></li>
+            <li><a role="menuitem" href="index.html#transparencia">Transparência</a></li>
+            <li><a role="menuitem" href="index.html#contato">Contato</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
 </header>
 
-    <main id="conteudo" class="container" role="main">
-      <header class="page-header">
+    <main id="conteudo" class="container">
+      <header class="page-header section">
         <h2>Cadastro de Participante</h2>
         <p>Preencha o formulário. Campos marcados com * são obrigatórios.</p>
       </header>
 
+      <div id="alert-success" class="alert success hidden" role="alert">Cadastro enviado com sucesso! Obrigado 💙</div>
+
       <form id="form-cadastro" novalidate>
         <fieldset>
           <legend>Dados pessoais</legend>
-
           <div class="field">
             <label for="nome">Nome completo *</label>
             <input id="nome" name="nome" type="text" autocomplete="name" required minlength="3" maxlength="120">
           </div>
-
           <div class="field">
             <label for="email">E-mail *</label>
             <input id="email" name="email" type="email" autocomplete="email" required>
           </div>
-
           <div class="field">
             <label for="cpf">CPF *</label>
             <input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00"
                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Formato: 000.000.000-00"
                    required aria-describedby="ajuda-cpf">
-            <small id="ajuda-cpf" class="help">Somente números, a máscara será aplicada automaticamente.</small>
+            <small id="ajuda-cpf" class="muted">A máscara será aplicada automaticamente.</small>
           </div>
-
           <div class="field">
             <label for="telefone">Telefone *</label>
             <input id="telefone" name="telefone" type="tel" inputmode="tel" placeholder="(00) 00000-0000"
                    pattern="\(\d{2}\) \d{4,5}-\d{4}" title="Formato: (11) 90000-0000" required>
           </div>
-
           <div class="field">
             <label for="nascimento">Data de nascimento *</label>
             <input id="nascimento" name="nascimento" type="date" required>
@@ -66,23 +71,19 @@
 
         <fieldset>
           <legend>Endereço</legend>
-
           <div class="field">
             <label for="endereco">Endereço *</label>
             <input id="endereco" name="endereco" type="text" autocomplete="address-line1" required>
           </div>
-
           <div class="field">
             <label for="cep">CEP *</label>
             <input id="cep" name="cep" type="text" inputmode="numeric" placeholder="00000-000"
                    pattern="\d{5}-\d{3}" title="Formato: 00000-000" required>
           </div>
-
           <div class="field">
             <label for="cidade">Cidade *</label>
             <input id="cidade" name="cidade" type="text" autocomplete="address-level2" required>
           </div>
-
           <div class="field">
             <label for="estado">Estado *</label>
             <select id="estado" name="estado" required>
@@ -121,34 +122,32 @@
           <button class="btn btn-outline" type="reset">Limpar</button>
         </div>
 
-        <div role="status" aria-live="polite" class="feedback" id="status"></div>
+        <div role="status" aria-live="polite" class="muted mt-2" id="status"></div>
       </form>
     </main>
-    <footer class="site-footer" role="contentinfo">
-  <div class="container grid-3">
-    <section>
+    <footer id="transparencia" class="site-footer">
+  <div class="container row">
+    <section class="col-12 col-md-4">
       <h2 class="h4">Sobre</h2>
       <p>Somos uma organização sem fins lucrativos dedicada a ampliar oportunidades por meio da educação e cidadania.</p>
     </section>
-    <section>
+    <section class="col-12 col-md-4">
+      <h2 class="h4">Doações</h2>
+      <p>Chave PIX: <code id="pix">impacta@pix.org</code></p>
+      <p><button class="btn btn-outline js-copy-pix" data-pix="impacta@pix.org">Copiar PIX</button></p>
+    </section>
+    <section class="col-12 col-md-4">
       <h2 class="h4">Contato</h2>
       <address>
         Rua Exemplo, 123 — Guarulhos, SP<br>
         <a href="mailto:contato@impacta.org">contato@impacta.org</a><br>
-        <a href="tel:+5511999999999">+55 (11) 99999‑9999</a>
+        <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
       </address>
     </section>
-    <section>
-      <h2 class="h4">Transparência</h2>
-      <ul>
-        <li><a href="#" aria-disabled="true">Relatório anual (em breve)</a></li>
-        <li><a href="#" aria-disabled="true">Prestação de contas (em breve)</a></li>
-      </ul>
-    </section>
   </div>
-  <p class="copy">© 2025 ONG Impacta+. Todos os direitos reservados.</p>
+  <p class="copy center">© 2025 ONG Impacta+. Todos os direitos reservados.</p>
+  <script src="js/main.js" defer></script>
 </footer>
-<script src="js/main.js" defer></script>
 
   </body>
 </html>
